@@ -1,10 +1,10 @@
 import Navigation from "../components/navigation";
 
-export default function Page() {
+export default function NotFount() {
   return (
     <div>
       <Navigation />
-      <h1>Hello</h1>
+      <h1>Not Found!</h1>
     </div>
   );
 }
