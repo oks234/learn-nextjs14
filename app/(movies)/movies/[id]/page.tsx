@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: IParams) {
 export default async function MovieDetail({ params }: IParams) {
   const { id } = await params;
   return (
-    <div>
+    <div className="container">
       <Suspense fallback={<h1>Loading movie info</h1>}>
         <MovieInfo id={id} />
       </Suspense>

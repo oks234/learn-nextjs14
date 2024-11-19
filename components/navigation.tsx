@@ -2,17 +2,25 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { buttonVariants } from "@/components/ui/button";
 
 export default function Navigation() {
   const path = usePathname();
   return (
-    <nav>
-      <ul>
+    <nav className="p-6 flex items-center justify-center sticky">
+      <ul className="flex rounded-full bg-white/75">
         <li>
-          <Link href="/">Home</Link> {path === "/" && "🚗"}
+          <Link className={`${buttonVariants({ variant: "link" })}`} href="/">
+            Home {path === "/" && "🚗"}
+          </Link>
         </li>
         <li>
-          <Link href="/about-us">About Us</Link> {path === "/about-us" && "🚗"}
+          <Link
+            className={buttonVariants({ variant: "link" })}
+            href="/about-us"
+          >
+            About Us {path === "/about-us" && "🚗"}
+          </Link>
         </li>
       </ul>
     </nav>
