@@ -1,16 +1,9 @@
 import Movie from "../../components/movie";
-import { API_URL } from "../constants";
+import { getMovies } from "../apis";
 
 export const metadata = {
   title: "Home",
 };
-
-async function getMovies() {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  const response = await fetch(API_URL);
-  const json = await response.json();
-  return json;
-}
 
 export default async function HomePage() {
   const movies = await getMovies();

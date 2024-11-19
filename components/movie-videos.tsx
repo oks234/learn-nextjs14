@@ -1,9 +1,4 @@
-import { API_URL } from "../app/constants";
-
-async function getVideos(id: string) {
-  const response = await fetch(`${API_URL}/${id}/videos`);
-  return response.json();
-}
+import { getVideos } from "../app/apis";
 
 export default async function MovieVideos({ id }: { id: string }) {
   const videos = await getVideos(id);
