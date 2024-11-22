@@ -1,4 +1,4 @@
-import { DetailedHTMLProps, HTMLAttributes, PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 import { cn } from "@/lib/utils";
 
 interface ITypography {
@@ -17,6 +17,22 @@ export function TypographyH1({
     >
       {children}
     </h1>
+  );
+}
+
+export function TypographyH2({
+  children,
+  className,
+}: PropsWithChildren<ITypography>) {
+  return (
+    <h2
+      className={cn(
+        "scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0",
+        className
+      )}
+    >
+      {children}
+    </h2>
   );
 }
 

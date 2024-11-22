@@ -26,16 +26,18 @@ export default async function MovieInfo({ id }: { id: string }) {
           <TypographyP>{movie.overview}</TypographyP>
         </CardContent>
         <CardFooter>
-          <Button asChild variant="outline">
-            <a href={movie.homepage} target={"_blank"}>
-              Homepage <ExternalLink />
-            </a>
-          </Button>
-          <Button asChild variant="outline">
-            <Link href={`/movies/${id}/credits`}>
-              Credits <SquareArrowOutUpRight />
-            </Link>
-          </Button>
+          <div className="flex gap-2 flex-wrap">
+            <Button asChild variant="outline">
+              <a href={movie.homepage} target={"_blank"}>
+                Homepage <ExternalLink />
+              </a>
+            </Button>
+            <Button asChild variant="outline">
+              <Link href={`/movies/${id}/credits`}>
+                Credits <SquareArrowOutUpRight />
+              </Link>
+            </Button>
+          </div>
         </CardFooter>
       </Card>
     </div>
