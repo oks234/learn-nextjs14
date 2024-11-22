@@ -4,9 +4,10 @@ import {
   CardContent,
   CardFooter,
   CardHeader,
+  CardTitle,
 } from "@/components/ui/card";
 import Poster from "@/components/poster";
-import { TypographyH1, TypographyP } from "./ui/typography";
+import { TypographyP } from "./ui/typography";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, SquareArrowOutUpRight } from "lucide-react";
 import Link from "next/link";
@@ -18,7 +19,7 @@ export default async function MovieInfo({ id }: { id: string }) {
       <Poster src={movie.poster_path} alt={movie.title} />
       <Card>
         <CardHeader>
-          <TypographyH1>{movie.title}</TypographyH1>
+          <CardTitle>{movie.title}</CardTitle>
         </CardHeader>
         <CardContent>
           <TypographyP>⭐️ {movie.vote_average}</TypographyP>
