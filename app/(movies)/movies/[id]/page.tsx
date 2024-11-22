@@ -1,6 +1,7 @@
 import { Suspense } from "react";
-import MovieInfo from "../../../../components/movie-info";
-import MovieVideos from "../../../../components/movie-videos";
+import MovieInfo from "@/components/movie-info";
+import MovieVideos from "@/components/movie-videos";
+import LoadingSpinner from "@/components/loading-spinner";
 import { getMovie } from "../../../apis";
 
 interface IParams {
@@ -19,10 +20,22 @@ export default async function MovieDetail({ params }: IParams) {
   const { id } = await params;
   return (
     <div className="container">
-      <Suspense fallback={<h1>Loading movie info</h1>}>
+      <Suspense
+        fallback={
+          <div className="p-8 flex justify-center">
+            <LoadingSpinner />
+          </div>
+        }
+      >
         <MovieInfo id={id} />
       </Suspense>
-      <Suspense fallback={<h1>Loading movie videos</h1>}>
+      <Suspense
+        fallback={
+          <div className="p-8 flex justify-center">
+            <LoadingSpinner />
+          </div>
+        }
+      >
         <MovieVideos id={id} />
       </Suspense>
     </div>
