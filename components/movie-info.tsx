@@ -8,7 +8,8 @@ import {
 import Poster from "@/components/poster";
 import { TypographyH1, TypographyP } from "./ui/typography";
 import { Button } from "@/components/ui/button";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, SquareArrowOutUpRight } from "lucide-react";
+import Link from "next/link";
 
 export default async function MovieInfo({ id }: { id: string }) {
   const movie = await getMovie(id);
@@ -29,6 +30,11 @@ export default async function MovieInfo({ id }: { id: string }) {
             <a href={movie.homepage} target={"_blank"}>
               Homepage <ExternalLink />
             </a>
+          </Button>
+          <Button asChild variant="outline">
+            <Link href={`/movies/${id}/credits`}>
+              Credits <SquareArrowOutUpRight />
+            </Link>
           </Button>
         </CardFooter>
       </Card>
