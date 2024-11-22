@@ -3,6 +3,9 @@ module.exports = {
   darkMode: ["class"],
   content: ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}"],
   theme: {
+    aspectRatio: {
+      'poster': '2 / 3',
+    },
     container: {
       center: true,
       padding: {

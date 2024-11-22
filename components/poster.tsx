@@ -1,4 +1,5 @@
 import { DetailedHTMLProps, HTMLAttributes } from "react";
+import { Skeleton } from "@/components/ui/skeleton"
 import { cn } from "@/lib/utils";
 
 interface IPosterProps
@@ -13,11 +14,12 @@ export default function Poster({ src, alt, ...divProps }: IPosterProps) {
     <div
       {...restDivProps}
       className={cn(
-        "overflow-hidden rounded-xl m-4 mb-0 flex items-center justify-center",
+        "relative overflow-hidden rounded-xl flex items-center justify-center aspect-poster",
         className
       )}
     >
-      <img src={src} alt={alt} />
+      <Skeleton className="absolute top-0 left-0 w-full aspect-poster" />
+      <img className="w-full" src={src} alt={alt} />
     </div>
   );
 }
