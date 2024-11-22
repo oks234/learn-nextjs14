@@ -1,9 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { SquareArrowOutUpRight } from "lucide-react"
-import { Card, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { buttonVariants } from "@/components/ui/button";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import Poster from "./poster";
 interface IMovieProps {
   id: string;
   poster_path: string;
@@ -12,23 +11,13 @@ interface IMovieProps {
 
 export default function Movie({ id, poster_path, title }: IMovieProps) {
   return (
-    <Card key={id}>
-      <div className="overflow-hidden rounded-t-xl m-4 mb-0">
-        <img src={poster_path} alt={title} />
-      </div>
-      <CardHeader>
-        <CardTitle>{title}</CardTitle>
-      </CardHeader>
-      <CardFooter className="justify-end">
-        <Link
-          className={`${buttonVariants({ variant: "default" })}`}
-          href={`/movies/${id}`}
-          prefetch
-        >
-          View Detail 
-          <SquareArrowOutUpRight />
-        </Link>
-      </CardFooter>
-    </Card>
+    <Link href={`/movies/${id}`} prefetch className="group">
+      <Card key={id} className="cursor-pointer transition-transform group-hover:scale-[0.98] group-active:scale-[0.96]">
+        <Poster src={poster_path} alt={title} />
+        <CardHeader>
+          <CardTitle>{title}</CardTitle>
+        </CardHeader>
+      </Card>
+    </Link>
   );
 }
