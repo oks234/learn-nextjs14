@@ -9,8 +9,9 @@ import {
 import Poster from "@/components/poster";
 import { TypographyP } from "./ui/typography";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, SquareArrowOutUpRight } from "lucide-react";
+import { SquareArrowOutUpRight } from "lucide-react";
 import Link from "next/link";
+import ExternalLink from "./external-link";
 
 export default async function MovieInfo({ id }: { id: string }) {
   const movie = await getMovie(id);
@@ -28,11 +29,7 @@ export default async function MovieInfo({ id }: { id: string }) {
         </CardContent>
         <CardFooter>
           <div className="flex gap-2 flex-wrap">
-            <Button asChild variant="outline">
-              <a href={movie.homepage} target={"_blank"}>
-                Homepage <ExternalLink />
-              </a>
-            </Button>
+            <ExternalLink href={movie.homepage}>Homepage</ExternalLink>
             <Button asChild variant="outline">
               <Link href={`/movies/${id}/credits`}>
                 Credits <SquareArrowOutUpRight />

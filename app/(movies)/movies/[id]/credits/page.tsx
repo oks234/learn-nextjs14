@@ -1,19 +1,17 @@
+// import { ExternalLink } from "lucide-react";
 import { getCredits, getMovie } from "@/app/apis";
+import ExternalLink from "@/components/external-link";
 import Profile from "@/components/profile";
+// import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
-import {
-  TypographyH1,
-  TypographyH2,
-  TypographyP,
-} from "@/components/ui/typography";
+import { TypographyH1, TypographyP } from "@/components/ui/typography";
+import { Search } from "lucide-react";
 
 interface IParams {
   params: Promise<{ id: string }>;
@@ -44,12 +42,17 @@ export default async function CreditsPage({ params }: IParams) {
                 <CardTitle>{credit.name}</CardTitle>
               </CardHeader>
               <CardContent>
-                <TypographyP>
-                  {credit.gender === 1 && "♂"}
-                  {credit.gender === 2 && "♀"}
-                </TypographyP>
                 <TypographyP>⭐️ {credit.popularity}</TypographyP>
               </CardContent>
+              <CardFooter>
+                <ExternalLink
+                  href={`https://www.google.com/search?q=${credit.name}`}
+                  noIcon={true}
+                >
+                  <Search />
+                  Google
+                </ExternalLink>
+              </CardFooter>
             </div>
           </Card>
         ))}

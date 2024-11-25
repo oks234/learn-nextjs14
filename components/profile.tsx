@@ -20,7 +20,7 @@ export default function Profile({ src, alt }: { src: string; alt: string }) {
       {!isLoaded && <Skeleton className="w-full h-auto aspect-poster" />}
       <img
         ref={imgRef}
-        className="w-full h-auto absolute opacity-0 group-[.is-loaded]:static group-[.is-loaded]:opacity-100"
+        className="w-full h-auto aspect-poster absolute opacity-0 group-[.is-loaded]:static group-[.is-loaded]:opacity-100"
         src={src}
         alt={alt}
         onLoad={() => {
