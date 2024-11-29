@@ -17,9 +17,9 @@ export default function Navigation() {
         <li>
           <Link
             className={buttonVariants({ variant: "link" })}
-            href="/about-us"
+            href="/about"
           >
-            About Us {path === "/about-us" && "🚗"}
+            About {path === "/about" && "🚗"}
           </Link>
         </li>
       </ul>
